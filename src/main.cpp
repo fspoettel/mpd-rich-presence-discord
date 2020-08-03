@@ -68,7 +68,7 @@ PresencePayload makePresence(const AppState& app, const TrackInfo* track, bool i
         }
         else
         {
-            rp.startTimestamp = time(0) - track->PlayTimeSeconds;
+            rp.endTimestamp = time(0) + track->PlayTimeTotal - track->PlayTimeSeconds;
             rp.smallImageKey = "play-circle_png";
             rp.smallImageText = "Playing";
 

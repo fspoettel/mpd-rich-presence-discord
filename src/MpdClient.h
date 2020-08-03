@@ -9,7 +9,8 @@ struct TrackInfo
 {
     std::string Artist;
     uint64_t PlayTimeSeconds;
-    
+    uint64_t PlayTimeTotal;
+
     std::string TrackName;
     int TrackNumber;
     int TotalTracks;

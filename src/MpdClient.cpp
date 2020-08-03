@@ -149,6 +149,7 @@ TrackInfo MpdClient::getCurrentTrack()
     t.TotalTracks = mpd_status_get_queue_length(mpdStatus);
     t.TrackNumber = mpd_status_get_song_pos(mpdStatus) + 1;
     t.PlayTimeSeconds = mpd_status_get_elapsed_time(mpdStatus);
+    t.PlayTimeTotal = mpd_status_get_total_time(mpdStatus);
     t.Artist = createArtist(mpdCurrentSong);
     t.TrackName = createTitle(mpdCurrentSong);
     
