@@ -3,5 +3,5 @@ rm -rf png;
 mkdir png;
 
 for f in *.svg ; do
-    convert -background none -size 1024x1024 $f png/`basename $f .svg`.png
+    convert -background none -density 1000 -resize 1024x $f png/`basename $f .svg`.png
 done

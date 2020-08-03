@@ -14,7 +14,7 @@
 static const char* AppIdPlaying= "381948295830044683";
 static const char* AppIdPaused = "382303152327753739";
 static const char* AppIdIdle = "382302420073709568";
-static const char* AppIdMulti = "474605546457137157";
+static const char* AppIdMulti = "739906846370037800";
 
 struct AppState
 {
@@ -48,8 +48,8 @@ PresencePayload makePresence(const AppState& app, const TrackInfo* track, bool i
 
     DiscordRichPresence& rp = payload.Presence;
 
-    rp.largeImageKey = "mpd_large";
-    rp.largeImageText = "Music Player Daemon";
+    rp.largeImageKey = "vinyl";
+    rp.largeImageText = "via MPD";
 
     if(track)
     {
@@ -60,7 +60,7 @@ PresencePayload makePresence(const AppState& app, const TrackInfo* track, bool i
 
         if(isPaused)
         {
-            rp.smallImageKey = "pause-circle_png";
+            rp.smallImageKey = "pause-circle";
             rp.smallImageText = "Paused";
 
             if(app.UseMultipleApps)
@@ -69,7 +69,7 @@ PresencePayload makePresence(const AppState& app, const TrackInfo* track, bool i
         else
         {
             rp.endTimestamp = time(0) + track->PlayTimeTotal - track->PlayTimeSeconds;
-            rp.smallImageKey = "play-circle_png";
+            rp.smallImageKey = "play-circle";
             rp.smallImageText = "Playing";
 
             if(app.UseMultipleApps)
@@ -79,7 +79,7 @@ PresencePayload makePresence(const AppState& app, const TrackInfo* track, bool i
     else
     {
         rp.state = "Idle";
-        rp.smallImageKey = "refresh-cw_png";
+        rp.smallImageKey = "refresh-cw";
         rp.smallImageText = "Zzz...";
 
         if(app.UseMultipleApps)
