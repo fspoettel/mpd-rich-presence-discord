@@ -121,12 +121,12 @@ std::string createArtist(mpd_song_t* song)
     const char* artist = mpd_song_get_tag(song, MPD_TAG_ARTIST, 0);
     const char* album = mpd_song_get_tag(song, MPD_TAG_ALBUM, 0);
     if(artist)
-        stream << "by " << artist;
+        stream << artist;
     if(album)
     {
-        if(artist) stream << " (";
-        stream << "album: " << album;
-        if(artist) stream << ")";
+        if(artist) stream << " [";
+        stream << album;
+        if(artist) stream << "]";
     }
     
     RET_CLAMP_STRSTREAM(stream);
